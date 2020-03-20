@@ -1,0 +1,6 @@
+<% title "Information" %>
+
+<p><strong>Name: </strong><%= current_user.name %></p>
+<p><strong>Email: </strong><%= current_user.email %></p>
+<%= link_to 'Edit', edit_user_path(@user), class: "btn btn-primary" %> |
+<%= link_to "Delete", current_user, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-primary" %>

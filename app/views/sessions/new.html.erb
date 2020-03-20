@@ -1,0 +1,14 @@
+<% title 'Login' %>
+
+<%= bootstrap_form_with(url: sessions_path, method: :post, local: true, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10") do |f| %>
+    <%= f.email_field :email %>
+    <%= f.password_field :password %>
+    <div>
+        <%= label_tag :remember_me %>
+        <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+    </div>
+    <%= f.form_group do %>
+            <%= f.primary "Login" %> OR <%= link_to "Login with Github" , "/auth/github!" %>
+            <p>If you forgot your ID or password, please click <%= link_to "here" , new_password_reset_path %> to find it.</p>
+        <% end %>
+<% end %>

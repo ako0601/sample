@@ -1,0 +1,8 @@
+<% title 'ID/PW Assistance' %>
+
+<p>You forgot your ID/Password?</p>
+
+<%= bootstrap_form_with(url: password_resets_path, method: :post, local: true, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10") do |f| %>
+  <%= f.email_field :email %>
+  <%= f.primary "Reset Password" %>
+<% end %>

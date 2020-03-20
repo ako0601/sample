@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <title>shoppers.com<%= " | "+yield(:title) unless yield(:title).blank? %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800&display=swap" rel="stylesheet">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  
+  <body>
+    
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <%= link_to "Shopper.com", root_path, class: "navbar-brand" %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <%= nav_link "Home", root_path %>
+          <%= nav_link "About", about_path %>
+          <% if current_user %>
+            <%= nav_link "Manage", shops_path %>
+          <% else %>
+            <%= nav_link "Shops", shops_path %> 
+          <% end %>
+        </ul>
+        <ul class="navbar-nav pull-right mr-auto">
+          <% if current_user %>
+            <%= nav_link current_user.name, current_user %> 
+            <%= nav_link "Logout", logout_path %>
+          <% else %>
+            <%= nav_link "Sign Up", signup_path %>
+            <%= nav_link "Login", login_path %>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+    
+    <main role="main" class="container">
+      
+      <div id="flash-messages" class="row">
+        <% flash.each do |name, msg| %>
+          <div class="alert alert-<%= name == 'notice' ? 'primary' : 'danger' %> alert-dismissable col" role="alert">
+            <%= msg %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <% end %>
+      </div>
+      
+      
+      <% if @show_title %>
+        <div id="title" class="row">
+          <div class="col">
+            <h1><%= yield(:title) %></h1>
+          </div>
+        </div>
+      <% end %>
+      
+      <%= yield %>
+      
+    </main><!-- /.container -->
+    
+    <footer class="footer">
+      <div class="contact">
+        <ul>
+          <li><span class="bold">Address:</span> Brigham Young University-Hawaii, 55-220 Kulanui ST. Laie, HI, USA</li>
+          <li><span class="bold">E-mail:</span> hawaiianoaks@gmail.com</li>
+          <li><span class="bold">Phone:</span> 808-892-6588</li>
+        </ul>
+      </div>
+      <div class="redirection-to">
+        <ul>
+          <li><a href="https://github.com/ako0601">Github</a></li>
+          <li><a href="https://www.instagram.com/hawaiianmadox/">Instagram</a></li>
+          <li><a href="https://www.facebook.com/kwangok.ahn.3">Facebook</a></li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

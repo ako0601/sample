@@ -1,0 +1,34 @@
+<% title @shop.product_name %>
+
+<%= @shop.user.name %>
+
+  <div class="editdelete">
+    <% if current_user %>
+      <% if current_user.id == @shop.user_id %>
+        <%= link_to 'Edit', edit_shop_path(@shop), class: "edittag" %> |
+        <%= link_to "Delete", @shop, method: :delete, data: {confirm: "Are you sure?"} %>
+      <% end %>
+    <% end %>
+  </div>
+
+
+<div class="contents22">
+  <%= image_tag @shop.productImage, class: "d-block w-100", id: "images" %>
+  <%= render @shop.requests %>
+</div>
+
+<% if !current_user %>
+  <p id="togglebutton">
+    <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Put Your Request</a>
+  </p>
+  <div class="row">
+    <div class="col">
+      <div class="collapse multi-collapse" id="multiCollapseExample1">
+        <div class="card card-body">
+          <%= render 'requests/form' %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<%= link_to 'Back', shops_path, class: "btn btn-primary" %>

@@ -1,0 +1,12 @@
+<div id="shop_<%= shop.id %>" class="shop">
+    <div class="toptitleanddate">
+        <p id="productname"><strong><%= link_to shop.product_name, shop %></strong></p>
+        <div class="date">
+            <p id="upload">Uploaded: <%= shop.created_at %></p>
+            <p id="upload">Updated: <%= shop.updated_at %></p>
+        </div>
+    </div>
+    <p><strong>Price: </strong> $<%= shop.price %></p>
+    <p><strong>Product Information:</strong> <%= shop.information %></p>
+</div>
+

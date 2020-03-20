@@ -1,0 +1,13 @@
+
+<%= bootstrap_form_with(model: current_user, local: true, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10") do |f| %>
+    <%= f.alert_message "Please fix the errors below.", error_summary: false %>
+    <%= f.text_field :name %>
+    <%= f.email_field :email %>
+    <% if current_user.has_password? %>
+        <%= f.password_field :password %>
+        <%= f.password_field :password_confirmation, label: "Confirm Password" %>
+    <% end %>
+    <%= f.form_group do %>
+        <%= f.primary current_user.persisted? ? "Update" : "Sign Up" %>
+    <% end %>
+<% end %>

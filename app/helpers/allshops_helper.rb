@@ -1,0 +1,2 @@
+module AllshopsHelper
+end

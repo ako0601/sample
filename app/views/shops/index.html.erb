@@ -1,0 +1,37 @@
+<% title "Shop Manager" %>
+
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <% @shops.each do |s| %>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+              <%= image_tag s.productImage, class: "d-block w-100" %>
+              <h4 class="card-title"><%= link_to s.product_name, s %></h4>
+              <h6 class="card-subtitle mb-2 text-muted">$<%= s.price %></h6>
+              <p class="card-text"><%= s.information %></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <% if current_user %>
+                  <% if current_user.id == s.user_id %>
+                    <div class="btn-group">
+                      <%= link_to "View", s, class: "btn btn-sm btn-outline-secondary" %>
+                      <%= link_to 'Edit', edit_shop_path(s), class: "btn btn-sm btn-outline-secondary" %>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <small class="text-muted"><%= s.user.name %></small>
+                <% end %>
+                <small class="text-muted"><%= s.updated_at %></small>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% if current_user %>
+  <%= link_to "New Product", new_shop_path, class: "btn btn-primary" %>
+<% end %>

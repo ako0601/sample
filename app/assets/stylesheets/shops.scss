@@ -1,0 +1,67 @@
+// Place all the styles related to the shops controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.shop {
+    text-align: left;
+    color: #343a40;
+    padding: 5px;
+    border: 1px solid rgba(52, 58, 64, 0.125);
+    margin-bottom: 15px;
+    border-radius: 15px;
+}
+
+#productname {
+    font-size: 2rem;
+}
+
+#upload {
+    font-size: 0.7rem;
+}
+
+.comment {
+    padding: 5px;
+    border: 5px #555;
+}
+
+.request {
+    color: #343a40;
+    padding: 5px;
+    border: 1px solid rgba(52, 58, 64, 0.125);
+    margin-bottom: 5px;
+
+}
+
+#togglebutton {
+    margin-left: auto;
+    margin-right: 5px;
+}
+
+.toptitleanddate {
+    display: flex;
+}
+
+.date {
+    margin-left: auto;
+    line-height: 1px;
+    padding: 4px;
+}
+
+.editdelete {
+    text-align: right;
+}
+
+.contents22 {
+    .unusual{
+        font-size: 1em;
+        font-weight: 700;
+        margin-bottom:0;
+        color: #343a40;
+    }   
+    margin-bottom: 5px;
+}
+
+#images {
+    max-width: 40%;
+    height: auto;
+}

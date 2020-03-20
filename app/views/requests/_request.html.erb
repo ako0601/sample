@@ -1,0 +1,22 @@
+<div id="request_<%= request.id %>" class="request">
+    <p><strong><%= request.name %></strong></p>
+    <% if request.rating == 0 %>
+        <p>☆☆☆☆☆</p>
+    <% elsif request.rating == 1 %>
+        <p>★☆☆☆☆</p>
+    <% elsif request.rating == 2 %>
+        <p>★★☆☆☆</p>
+    <% elsif request.rating == 3 %>
+        <p>★★★☆☆</p>
+    <% elsif request.rating == 4 %>
+        <p>★★★★☆</p>
+    <% elsif request.rating == 5 %>
+        <p>★★★★★</p>
+    <% end %>
+    <p><%= request.body %></p>
+    
+    <% if !current_user %>
+        <%= link_to 'Edit', edit_shop_request_path(@shop, request) %> |
+    <% end %>
+    <%= link_to "Delete", [@shop, request], method: :delete, data: {confirm: "Are you sure?"} %>
+</div>

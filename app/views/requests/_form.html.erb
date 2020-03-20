@@ -1,0 +1,10 @@
+<%= bootstrap_form_with(model: [@shop, @request], local: true, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10") do |f| %>
+  <%= f.alert_message "Please fix the errors below.", error_summary: false %>
+  <%= f.text_field :email %>
+  <%= f.text_field :name %>
+  <%= f.text_field :body %>
+  <%= f.number_field :rating %>
+  <%= f.form_group do %>
+    <%= f.primary @request.persisted? ? "Update Request" : "New Request" %>
+  <% end %>
+<% end %>
